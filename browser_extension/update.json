@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "{1cfe9dce-66ea-4c69-9226-0475f6643b07}": {
+      "updates": [
+        {
+          "version": "1.0",
+          "update_link": "https://varb.dev/office_policy_checker-1.0.xpi"
+        }
+      ]
+    }
+  }
+}
