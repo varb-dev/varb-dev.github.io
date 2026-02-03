@@ -145,6 +145,40 @@ footer a:hover {
     opacity: 0.7;
 }
 
+/* Projects Page Specific Styles */
+.projects-main {
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
+.projects-title {
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+.project {
+    margin-bottom: 3rem;
+}
+
+.firefox-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.firefox-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     nav {
