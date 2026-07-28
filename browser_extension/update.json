@@ -41,6 +41,10 @@
         {
           "version": "1.6.3",
           "update_link": "https://varb.dev/browser_extension/office_policy_checker/d9bd0888b8ec4ff1b1be-1.6.3.xpi"
+        },
+        {
+          "version": "1.6.4",
+          "update_link": "https://varb.dev/browser_extension/office_policy_checker/d9bd0888b8ec4ff1b1be-1.6.4.xpi"
         }
       ]
     }
