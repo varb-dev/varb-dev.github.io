@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101014">
+    <title>Countdown</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="countdown-page">
+        <section class="countdown-card" aria-labelledby="countdown-title">
+            <h1 id="countdown-title" class="visually-hidden">Countdown</h1>
+            <div class="countdown" aria-live="polite" aria-atomic="true">
+                <div class="time-unit">
+                    <output id="days" class="time-value">000</output>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-unit">
+                    <output id="hours" class="time-value">00</output>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <output id="minutes" class="time-value">00</output>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <output id="seconds" class="time-value">00</output>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="countdown.js"></script>
+</body>
+</html>
