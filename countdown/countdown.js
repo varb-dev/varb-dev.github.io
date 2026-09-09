@@ -1,15 +1,5 @@
-/*
- * Change these values to set the local-time countdown.
- * `month` uses the familiar 1–12 format. This is interpreted in the device's timezone.
- */
-const COUNTDOWN_CONFIG = {
-    year: 2026,
-    month: 11,
-    day: 19,
-    hour: 0,
-    minute: 0,
-    second: 0
-};
+// Auckland is on NZDT (UTC+13) on 19 November 2026.
+const targetDate = new Date("2026-11-19T00:00:00+13:00");
 
 const units = {
     days: document.querySelector("#days"),
@@ -17,16 +7,6 @@ const units = {
     minutes: document.querySelector("#minutes"),
     seconds: document.querySelector("#seconds")
 };
-
-const targetDate = new Date(
-    COUNTDOWN_CONFIG.year,
-    COUNTDOWN_CONFIG.month - 1,
-    COUNTDOWN_CONFIG.day,
-    COUNTDOWN_CONFIG.hour,
-    COUNTDOWN_CONFIG.minute,
-    COUNTDOWN_CONFIG.second,
-    0
-);
 
 function updateCountdown() {
     const now = new Date();
