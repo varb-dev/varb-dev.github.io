@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../data/favicon.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Eurojackpot Simulator - VARB.DEV</title>
+</head>
+<body class="lottery-page">
+    <nav aria-label="Main navigation">
+        <a href="../../index.html" class="logo-link">
+            <img src="../../data/logo.png" alt="VARB Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../projects.html">Projects</a></li>
+            <li><a href="../../about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="lottery-main">
+        <div class="lottery-container">
+            <header class="page-heading">
+                <h1>Eurojackpot</h1>
+                <p>Pick your numbers. See when they would have won.</p>
+                <p id="data-status" class="data-status" role="status">Loading draw history…</p>
+            </header>
+
+            <form id="ticket-form" class="ticket-panel">
+                <fieldset>
+                    <legend>Main numbers <span id="main-count" class="selection-count" aria-live="polite">0 / 5</span></legend>
+                    <p class="field-hint">Choose 5 numbers from 1–50.</p>
+                    <div id="main-numbers" class="number-grid"></div>
+                </fieldset>
+
+                <fieldset class="euro-section">
+                    <legend>Euro numbers <span id="euro-count" class="selection-count" aria-live="polite">0 / 2</span></legend>
+                    <p class="field-hint">Choose 2 numbers from 1–12.</p>
+                    <div id="euro-numbers" class="number-grid euro-grid"></div>
+                </fieldset>
+
+                <div class="ticket-options">
+                    <div class="actions">
+                        <button id="play-button" type="submit" class="action-button primary" disabled>Play</button>
+                        <button id="clear-button" type="button" class="action-button" disabled>Clear</button>
+                        <button id="settings-button" type="button" class="settings-button" popovertarget="settings-panel" aria-label="Lottery settings" title="Lottery settings">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <noscript><p class="load-error">Enable JavaScript to select numbers and check the draw history.</p></noscript>
+        </div>
+    </main>
+
+    <section id="settings-panel" popover aria-labelledby="settings-title">
+        <h2 id="settings-title">Settings</h2>
+        <div class="filter-control">
+            <label for="tier-cutoff">Show wins at this tier or higher</label>
+            <select id="tier-cutoff" disabled aria-describedby="tier-hint">
+                <option>Loading tiers…</option>
+            </select>
+            <p id="tier-hint" class="field-hint">Tier 1 is the jackpot. Higher prizes have lower tier numbers.</p>
+        </div>
+    </section>
+
+    <dialog id="results-dialog" aria-labelledby="results-title" aria-describedby="results-summary">
+        <div class="dialog-header">
+            <h2 id="results-title">Your results</h2>
+            <button id="close-results" type="button" class="close-button" aria-label="Close results" autofocus>×</button>
+        </div>
+        <p id="results-summary"></p>
+        <div class="result-ticket">
+            <p><span>Main</span> <strong id="result-main"></strong></p>
+            <p><span>Euro</span> <strong id="result-euro"></strong></p>
+        </div>
+        <p id="empty-results" hidden>No winning draws for this ticket and tier filter. Try another selection or include more prize tiers.</p>
+        <div id="results-table-wrap" class="results-table-wrap" tabindex="0" role="region" aria-label="Winning draws" hidden>
+            <table>
+                <caption id="results-caption" class="visually-hidden">Winning draws, newest first</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" aria-sort="descending">
+                            <button type="button" class="sort-button" data-sort="date" aria-label="Sort by date, oldest first">
+                                Date <span class="sort-icon" aria-hidden="true">↓</span>
+                            </button>
+                        </th>
+                        <th scope="col" aria-sort="none">
+                            <button type="button" class="sort-button" data-sort="tier" aria-label="Sort by tier, highest prizes first">
+                                Tier <span class="sort-icon" aria-hidden="true">↕</span>
+                            </button>
+                        </th>
+                        <th scope="col">Drawn numbers</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body"></tbody>
+            </table>
+        </div>
+        <p id="match-legend" class="field-hint" hidden>Matches: white main numbers, gold Euro numbers.</p>
+    </dialog>
+
+    <footer>
+        <a href="../../impressum.html">Impressum</a>
+    </footer>
+    <script type="module" src="lottery.js"></script>
+</body>
+</html>
